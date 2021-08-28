@@ -1,0 +1,39 @@
+/*
+#13292B
+#435A55
+#788C7A
+#CBC196
+#EFE0C3
+*/
+
+body {
+    margin: 0px;
+    background-color: #EFE0C3;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #435A55;
+}
+#gitHubLink {
+    color:#788C7A    ;
+}
+#gitHubLink.visited {
+    color:#788C7A;
+}
+.footer {
+    background-color: #435A55;
+    color: #788C7A;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
