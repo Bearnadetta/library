@@ -8,12 +8,20 @@
     <title>Library</title>
 </head>
 <body>
-    <header class= 'header'>
+    <header id= 'header'>
 
     </header>
     <div id='content'>
-        <div id = 'bookForm'>
-
+        <div id = 'bookFormDiv'>
+            <form id = 'bookForm'>
+                <label for= 'title'>Title</label> <br>
+                <input type = 'text' id = 'titleInput'> <br>
+                <label for= 'author'>Author</label> <br>
+                <input type = 'text' id = 'authorInput'> <br>
+                <label for = 'read'>Read already?</label>
+                <input type = 'checkbox' id = 'readCheckbox'> <br>
+                <input type = 'submit' value = 'Submit'>
+            </form>
         </div>
         <div id= 'library'>
 
