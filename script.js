@@ -1,8 +1,7 @@
 let myLibrary = [];
 const submit = document.getElementById('submitBtn');
 const form = document.getElementById('bookForm');
-const bookData = new FormData(form);
-const bookObject = Object.fromEntries(bookData.entries());
+
 
 const isRead = function(e) {
     if(e.read === true || e.read === 'on') {
@@ -23,10 +22,20 @@ Book.prototype.info = function() {
         return (this.title + ' was written by ' + this.author + '. It has ' + this.pages + 
             ' pages, and ' + isRead(this) + '.')
 }
-function addBookToLibrary(Book) {
+submit.addEventListener('click', function() {
+    addBookToLibrary();
+    form.reset();
+})
+function addBookToLibrary() {
     //adds the book from the form section to the library
-
+    let bookData = new FormData(form);
+    let bookObject = Object.fromEntries(bookData.entries());
+    if(bookObject.title && bookObject.author && bookObject.pages) {
+    
+    }else {
+        alert('Please provide a Title, Author, and the number of Pages')
+    }
     
 }
 //A test book for the library
-const testBook = new Book('test book', 'anonymous', 1000, true)
+const testBook = new Book('test book', 'anonymous', 1000,)
