@@ -1,4 +1,7 @@
 let myLibrary = [];
+const submit = document.getElementById('submitBtn');
+const form = document.getElementById('bookForm');
+
 
 function Book(title, author) {
     //constructor function for book objects
@@ -9,6 +12,9 @@ function Book(title, author) {
     }
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(Book) {
     //adds the book from the form section to the library
+    
 }
+
+
