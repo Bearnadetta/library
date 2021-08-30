@@ -18,6 +18,7 @@ function Book(title, author, pages, read) {
     this.pages = pages 
     this.read = read
 }
+
 Book.prototype.info = function() {
         return (this.title + ' was written by ' + this.author + '. It has ' + this.pages + 
             ' pages, and ' + isRead(this) + '.')
@@ -31,11 +32,18 @@ function addBookToLibrary() {
     let bookData = new FormData(form);
     let bookObject = Object.fromEntries(bookData.entries());
     if(bookObject.title && bookObject.author && bookObject.pages) {
-    
+        let myBook = new Book(bookObject.title, bookObject.author, bookObject.pages, bookObject.read);
+        myLibrary.push(myBook)
+
     }else {
         alert('Please provide a Title, Author, and the number of Pages')
     }
-    
+}
+
+const displayBooks = function() {
+    for (i = 0; i < myLibrary.length; i ++) {
+
+    }
 }
 //A test book for the library
 const testBook = new Book('test book', 'anonymous', 1000,)
