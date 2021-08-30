@@ -47,7 +47,17 @@ const displayBooks = function() {
     for (i = 0; i < myLibrary.length; i ++) {
         let bookDisplay = document.createElement('div');
         bookDisplay.className = 'bookDisplay';
+        bookDisplay.id = ('display' + i);
         bookDisplay.textContent = (myLibrary[i].info());
+        let deleteBtn = document.createElement('button');
+        deleteBtn.className = 'deleteBtn';
+        deleteBtn.textContent = 'delete';
+        deleteBtn.addEventListener('click', function() {
+            let target = document.getElementById('display' + i);
+            target.remove();
+            myLibrary = myLibrary.filter(obj => obj.id !== i);
+        })
+        bookDisplay.appendChild(deleteBtn);
         library.appendChild(bookDisplay);
     }
 }
