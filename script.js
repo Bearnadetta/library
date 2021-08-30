@@ -1,6 +1,7 @@
 let myLibrary = [];
 const submit = document.getElementById('submitBtn');
 const form = document.getElementById('bookForm');
+const library = document.getElementById('library');
 
 
 const isRead = function(e) {
@@ -34,6 +35,7 @@ function addBookToLibrary() {
     if(bookObject.title && bookObject.author && bookObject.pages) {
         let myBook = new Book(bookObject.title, bookObject.author, bookObject.pages, bookObject.read);
         myLibrary.push(myBook)
+        displayBooks();
 
     }else {
         alert('Please provide a Title, Author, and the number of Pages')
@@ -41,8 +43,12 @@ function addBookToLibrary() {
 }
 
 const displayBooks = function() {
+    library.textContent = '';
     for (i = 0; i < myLibrary.length; i ++) {
-
+        let bookDisplay = document.createElement('div');
+        bookDisplay.className = 'bookDisplay';
+        bookDisplay.textContent = (myLibrary[i].info());
+        library.appendChild(bookDisplay);
     }
 }
 //A test book for the library

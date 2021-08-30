@@ -5,7 +5,6 @@
 #CBC196
 #EFE0C3
 */
-
 body {
     margin: 0px;
     background-color: #EFE0C3;
@@ -22,19 +21,29 @@ body {
     display: flex;
     padding: 10px;
     margin: 10px;
-    height: 80%;
+    min-height: 600px;
 }
 #bookFormDiv {
     border: 1px solid black;
     margin: 10px;
     padding: 20px;
 }
+#libraryContainer {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+    height: 500px;
+}
+
 #library {
     border: 1px solid black;
     margin: 20px;
     padding: 20px;
 }
-
+.bookDisplay {
+    border: 1px solid black;
+    max-width: 20%;
+}
 .footer {
     background-color: #435A55;
     color: #788C7A;
