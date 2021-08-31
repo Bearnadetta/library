@@ -46,7 +46,7 @@ const displayBooks = function() {
     for (i = 0; i < myLibrary.length; i ++) {
         let bookDisplay = document.createElement('div');
         bookDisplay.className = 'bookDisplay';
-        bookDisplay.setAttribute = ('data-position', i);
+        bookDisplay.setAttribute('data-position', i);
         bookDisplay.textContent = (myLibrary[i].info());
         let deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
@@ -55,9 +55,9 @@ const displayBooks = function() {
         deleteBtn.addEventListener('click', function() {
             for (i = 0; i < myLibrary.length; i ++) {
                 let libraryNode = document.querySelectorAll('.bookDisplay');
-                console.log(this);
                 if(libraryNode[i].getAttribute('data-position') == this.getAttribute('data-position')) {
                     let target = libraryNode[i];
+                    myLibrary = myLibrary.filter(myLibrary.splice(i, 1));
                     target.remove();
 
                 }
