@@ -3,7 +3,6 @@ const submit = document.getElementById('submitBtn');
 const form = document.getElementById('bookForm');
 const library = document.getElementById('library');
 
-
 const isRead = function(e) {
     if(e.read === true || e.read === 'on') {
         return 'I have already read it'
@@ -47,15 +46,22 @@ const displayBooks = function() {
     for (i = 0; i < myLibrary.length; i ++) {
         let bookDisplay = document.createElement('div');
         bookDisplay.className = 'bookDisplay';
-        bookDisplay.id = ('display' + i);
+        bookDisplay.setAttribute = ('data-position', i);
         bookDisplay.textContent = (myLibrary[i].info());
         let deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
         deleteBtn.textContent = 'delete';
+        deleteBtn.setAttribute('data-position', i)
         deleteBtn.addEventListener('click', function() {
-            let target = document.getElementById('display' + i);
-            target.remove();
-            myLibrary = myLibrary.filter(obj => obj.id !== i);
+            for (i = 0; i < myLibrary.length; i ++) {
+                let libraryNode = document.querySelectorAll('.bookDisplay');
+                console.log(this);
+                if(libraryNode[i].getAttribute('data-position') == this.getAttribute('data-position')) {
+                    let target = libraryNode[i];
+                    target.remove();
+
+                }
+            }
         })
         bookDisplay.appendChild(deleteBtn);
         library.appendChild(bookDisplay);
