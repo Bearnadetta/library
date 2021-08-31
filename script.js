@@ -23,6 +23,15 @@ Book.prototype.info = function() {
         return (this.title + ' was written by ' + this.author + '. It has ' + this.pages + 
             ' pages, and ' + isRead(this) + '.')
 }
+Book.prototype.toggleRead = function() {
+    if (this.read == true || this.read == 'on'){
+        this.read = false;
+    } else if (this.read == false ||this.read == undefined){
+        this.read = true;
+    }
+    displayBooks();
+}
+
 submit.addEventListener('click', function() {
     addBookToLibrary();
     form.reset();
@@ -71,18 +80,9 @@ const displayBooks = function() {
         readBtn.textContent = 'Read?';
         readBtn.setAttribute('data-position', i)
         readBtn.addEventListener('click', function() {
-            for (i = 0; i < myLibrary.length; i ++) {
-                let libraryNode = document.querySelectorAll('.displayText');
-                if(libraryNode[i].getAttribute('data-position') == this.getAttribute('data-position')) {
-                    if (myLibrary[i].read == true || myLibrary[i].read == 'on') {
-                        myLibrary[i].read = false;
-                        libraryNode[i].textContent = (myLibrary[i].info());
-                    } else if (myLibrary[i].read == !true || myLibrary[i].read == undefined) {
-                        myLibrary[i].read = true;
-                        libraryNode[i].textContent = (myLibrary[i].info());
-                    }
-                }
-            }
+            let j = (this.getAttribute('data-position'));
+            myLibrary[j].toggleRead();
+
         })
         bookDisplay.appendChild(bookDisplayText)
         bookDisplay.appendChild(br)
