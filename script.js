@@ -45,9 +45,13 @@ const displayBooks = function() {
     library.textContent = '';
     for (i = 0; i < myLibrary.length; i ++) {
         let bookDisplay = document.createElement('div');
+        let bookDisplayText = document.createElement('div')
         bookDisplay.className = 'bookDisplay';
         bookDisplay.setAttribute('data-position', i);
-        bookDisplay.textContent = (myLibrary[i].info());
+        bookDisplayText.textContent = (myLibrary[i].info());
+        bookDisplayText.className = 'displayText';
+        bookDisplayText.setAttribute('data-position', i);
+        let br = document.createElement('br');
         let deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
         deleteBtn.textContent = 'delete';
@@ -57,13 +61,34 @@ const displayBooks = function() {
                 let libraryNode = document.querySelectorAll('.bookDisplay');
                 if(libraryNode[i].getAttribute('data-position') == this.getAttribute('data-position')) {
                     let target = libraryNode[i];
-                    myLibrary = myLibrary.filter(myLibrary.splice(i, 1));
                     target.remove();
-
+                    removed = (myLibrary.splice(i, 1));
                 }
             }
         })
+        let readBtn = document.createElement('button')
+        readBtn.className = 'readBtn';
+        readBtn.textContent = 'Read?';
+        readBtn.setAttribute('data-position', i)
+        readBtn.addEventListener('click', function() {
+            for (i = 0; i < myLibrary.length; i ++) {
+                let libraryNode = document.querySelectorAll('.displayText');
+                if(libraryNode[i].getAttribute('data-position') == this.getAttribute('data-position')) {
+                    if (myLibrary[i].read == true || myLibrary[i].read == 'on') {
+                        myLibrary[i].read = false;
+                        libraryNode[i].textContent = (myLibrary[i].info());
+                    } else if (myLibrary[i].read == !true || myLibrary[i].read == undefined) {
+                        myLibrary[i].read = true;
+                        libraryNode[i].textContent = (myLibrary[i].info());
+                    }
+                }
+            }
+        })
+        bookDisplay.appendChild(bookDisplayText)
+        bookDisplay.appendChild(br)
         bookDisplay.appendChild(deleteBtn);
+        bookDisplay.appendChild(br)
+        bookDisplay.appendChild(readBtn)
         library.appendChild(bookDisplay);
     }
 }
