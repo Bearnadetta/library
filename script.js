@@ -63,7 +63,7 @@ const displayBooks = function() {
         let br = document.createElement('br');
         let deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
-        deleteBtn.textContent = 'delete';
+        deleteBtn.textContent = 'Remove';
         deleteBtn.setAttribute('data-position', i)
         deleteBtn.addEventListener('click', function() {
             for (i = 0; i < myLibrary.length; i ++) {

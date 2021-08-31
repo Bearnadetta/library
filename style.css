@@ -5,9 +5,13 @@
 #CBC196
 #EFE0C3
 */
+HTML {
+    height: 100%;
+}
 body {
     margin: 0px;
     background-color: #EFE0C3;
+    height: 100%;
 }
 
 #header {
@@ -15,38 +19,44 @@ body {
     padding: 10px;
     height: 50px;
     background-color: #435A55;
+    box-shadow: 0px 0px 20px #1c2523;
 }
 #content {
-    border: 1px solid black;
+    border: 5px groove #EFE0C3;
     display: flex;
     padding: 10px;
     margin: 10px;
-    min-height: 600px;
+    height: 80%;
 }
 #bookFormDiv {
-    border: 1px solid black;
+    background-color: #788C7A;
+    border: 5px groove #788C7A;
     margin: 10px;
     padding: 20px;
+    height: 50%
 }
 #libraryContainer {
-    border: 1px solid black;
+    border: 5px groove #CBC196;
+    background-color: #CBC196;
     margin: 20px;
     padding: 20px;
-    height: 500px;
-    max-height: 100%;
+    height: 90%;
+    width: 90%;
 }
 
 #library {
-    border: 1px solid black;
-    margin: 20px;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .bookDisplay {
-    border: 1px solid black;
-    max-width: 20%;
+    border: 5px groove #788C7A;
+    background-color: #788C7A;
+    margin: 10px;
+    padding: 5px;
 }
 .footer {
     background-color: #435A55;
+    box-shadow: 0px 0px 20px #1c2523;
     color: #788C7A;
     width: 100%;
     position: absolute;
