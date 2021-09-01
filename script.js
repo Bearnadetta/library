@@ -50,6 +50,20 @@ function addBookToLibrary() {
     }
 }
 
+const storeLibrary = function() {
+    let jsonLibrary = JSON.stringify(myLibrary);
+    localStorage.setItem('jsonLibrary', jsonLibrary);
+    }
+
+const loadLibrary = function() {
+    let pulledObjs = JSON.parse(localStorage.getItem('jsonLibrary'));
+    for (i = 0; i < pulledObjs.length; i++) {
+        let bookObject = new Book(pulledObjs[i].title, pulledObjs[i].author, pulledObjs[i].pages, pulledObjs[i].read);
+        myLibrary.push(bookObject);
+    }
+    displayBooks();
+}
+
 const displayBooks = function() {
     library.textContent = '';
     for (i = 0; i < myLibrary.length; i ++) {
@@ -72,6 +86,7 @@ const displayBooks = function() {
                     let target = libraryNode[i];
                     target.remove();
                     removed = (myLibrary.splice(i, 1));
+                    storeLibrary();
                 }
             }
         })
@@ -90,7 +105,14 @@ const displayBooks = function() {
         bookDisplay.appendChild(br)
         bookDisplay.appendChild(readBtn)
         library.appendChild(bookDisplay);
+        storeLibrary();
     }
 }
-//A test book for the library
-const testBook = new Book('test book', 'anonymous', 1000,)
+
+window.addEventListener('load', function() {
+    if(localStorage.getItem('jsonLibrary') == '[]' || localStorage.getItem('jsonLibrary') == null) {
+
+    } else {
+        loadLibrary();
+    }
+})
