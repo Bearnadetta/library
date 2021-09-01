@@ -41,7 +41,9 @@ body {
     margin: 20px;
     padding: 20px;
     height: 90%;
+    max-height: 90%;
     width: 90%;
+    overflow: auto;
 }
 
 #library {
