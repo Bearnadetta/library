@@ -40,7 +40,7 @@ function addBookToLibrary() {
     //adds the book from the form section to the library
     let bookData = new FormData(form);
     let bookObject = Object.fromEntries(bookData.entries());
-    if(bookObject.title && bookObject.author && bookObject.pages) {
+    if(bookObject.title && bookObject.author && bookObject.pages && !isNaN(bookObject.pages)) {
         let myBook = new Book(bookObject.title, bookObject.author, bookObject.pages, bookObject.read);
         myLibrary.push(myBook)
         displayBooks();
