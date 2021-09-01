@@ -54,7 +54,13 @@ body {
     border: 5px groove #788C7A;
     background-color: #788C7A;
     margin: 10px;
-    padding: 5px;
+    padding: 20px;
+}
+.deleteBtn {
+    margin: 5px;
+}
+.readBtn {
+    margin: 5px;
 }
 .footer {
     background-color: #435A55;
