@@ -36,7 +36,13 @@ body {
     height: 50%;
     box-shadow: 0px 0px 20px #504a3f;
 }
-
+#submitBtn {
+    border-radius: 15px;
+    background-color: rgb(221, 221, 221);
+}
+#submitBtn:hover {
+    background-color: rgb(177, 177, 177)
+}
 #bookFormDiv, 
 label {
     color: #273532
@@ -66,9 +72,19 @@ label {
 }
 .deleteBtn {
     margin: 20px 0px 0px 0px;
+    border-radius: 15px;
+    background-color: rgb(221, 221, 221);
 }
 .readBtn {
     margin: 5px;
+    border-radius: 15px;
+    background-color: rgb(221, 221, 221);
+}
+.deleteBtn:hover {
+    background-color: rgb(177, 177, 177)
+}
+.readBtn:hover {
+    background-color: rgb(177, 177, 177)
 }
 .footer {
     background-color: #435A55;
