@@ -1,8 +1,9 @@
+// Global variables based on DOM elements
 let myLibrary = [];
 const submit = document.getElementById('submitBtn');
 const form = document.getElementById('bookForm');
 const library = document.getElementById('library');
-
+// Function checks to see if entry has been read, and returns result
 const isRead = function(e) {
     if(e.read === true || e.read === 'on') {
         return 'I have already read it'
@@ -10,7 +11,6 @@ const isRead = function(e) {
         return 'I have not gotten around to reading it yet'
     }
 }
-
 function Book(title, author, pages, read) {
     //constructor function for book objects
     this.title = title
@@ -18,24 +18,25 @@ function Book(title, author, pages, read) {
     this.pages = pages 
     this.read = read
 }
-
+// Book prototype that returns information for display
 Book.prototype.info = function() {
         return (this.title + ' was written by ' + this.author + '. It has ' + this.pages + 
             ' pages, and ' + isRead(this) + '.')
 }
+// Book prototype that toggles the 'read' property 
 Book.prototype.toggleRead = function() {
     if (this.read == true || this.read == 'on'){
         this.read = false;
     } else if (this.read == false ||this.read == undefined){
         this.read = true;
     }
-    displayBooks();
+    displayBooks();    // updates the display with current read values
 }
-
+// when the submit button is clicked, runs the addBookToLibrary function and resets form
 submit.addEventListener('click', function() {
     addBookToLibrary();
     form.reset();
-})
+});
 function addBookToLibrary() {
     //adds the book from the form section to the library
     let bookData = new FormData(form);
@@ -49,12 +50,12 @@ function addBookToLibrary() {
         alert('Please provide a Title, Author, and the number of Pages')
     }
 }
-
+//saves library to local storage
 const storeLibrary = function() {
     let jsonLibrary = JSON.stringify(myLibrary);
     localStorage.setItem('jsonLibrary', jsonLibrary);
     }
-
+//loads library and sets myLibrary to an array of book objects
 const loadLibrary = function() {
     let pulledObjs = JSON.parse(localStorage.getItem('jsonLibrary'));
     for (i = 0; i < pulledObjs.length; i++) {
@@ -63,7 +64,8 @@ const loadLibrary = function() {
     }
     displayBooks();
 }
-
+// displays each book object on it's own div within the library display, each with a button
+//that will either delete the book's div or toggle the book's read status
 const displayBooks = function() {
     library.textContent = '';
     for (i = 0; i < myLibrary.length; i ++) {
@@ -108,7 +110,7 @@ const displayBooks = function() {
         storeLibrary();
     }
 }
-
+// on window load, checks for local json library to pull data from local storage
 window.addEventListener('load', function() {
     if(localStorage.getItem('jsonLibrary') == '[]' || localStorage.getItem('jsonLibrary') == null) {
 
