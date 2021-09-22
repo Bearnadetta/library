@@ -118,3 +118,5 @@ window.addEventListener('load', function() {
         loadLibrary();
     }
 })
+
+//TODO: Refactor using class instead of plain constructors
