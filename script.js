@@ -11,27 +11,31 @@ const isRead = function(e) {
         return 'I have not gotten around to reading it yet'
     }
 }
-function Book(title, author, pages, read) {
-    //constructor function for book objects
+
+class Book {
+    constructor(title, author, pages, read) { //constructor function for book objects
+
     this.title = title
     this.author = author
     this.pages = pages 
     this.read = read
-}
-// Book prototype that returns information for display
-Book.prototype.info = function() {
+    }
+    get info() { //returns information for display
         return (this.title + ' was written by ' + this.author + '. It has ' + this.pages + 
             ' pages, and ' + isRead(this) + '.')
-}
-// Book prototype that toggles the 'read' property 
-Book.prototype.toggleRead = function() {
-    if (this.read == true || this.read == 'on'){
-        this.read = false;
-    } else if (this.read == false ||this.read == undefined){
-        this.read = true;
     }
-    displayBooks();    // updates the display with current read values
+
+    toggleRead() { //toggles the 'read' property 
+        if (this.read == true || this.read == 'on'){
+            this.read = false;
+        } else if (this.read == false ||this.read == undefined){
+            this.read = true;
+        }
+        displayBooks();    // updates the display with current read values
+    }
+
 }
+
 // when the submit button is clicked, runs the addBookToLibrary function and resets form
 submit.addEventListener('click', function() {
     addBookToLibrary();
@@ -73,7 +77,7 @@ const displayBooks = function() {
         let bookDisplayText = document.createElement('div')
         bookDisplay.className = 'bookDisplay';
         bookDisplay.setAttribute('data-position', i);
-        bookDisplayText.textContent = (myLibrary[i].info());
+        bookDisplayText.textContent = (myLibrary[i].info);
         bookDisplayText.className = 'displayText';
         bookDisplayText.setAttribute('data-position', i);
         let br = document.createElement('br');
