@@ -11,7 +11,7 @@ const isRead = function(e) {
         return 'I have not gotten around to reading it yet'
     }
 }
-
+//reformatted to use class structure
 class Book {
     constructor(title, author, pages, read) { //constructor function for book objects
 
