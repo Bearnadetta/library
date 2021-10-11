@@ -41,6 +41,7 @@ body {
     background-color: rgb(221, 221, 221);
 }
 #submitBtn:hover {
+    border: 1px groove grey;
     background-color: rgb(177, 177, 177)
 }
 #bookFormDiv, 
