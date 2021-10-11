@@ -1,4 +1,5 @@
 // Global variables based on DOM elements
+'use strict'
 let myLibrary = [];
 const submit = document.getElementById('submitBtn');
 const form = document.getElementById('bookForm');
