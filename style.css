@@ -24,7 +24,7 @@ body {
 #content {
     border: 5px groove #EFE0C3;
     display: flex;
-    padding: 15px;
+    padding: 10px;
     margin: 10px;
     height: 80%;
 }
